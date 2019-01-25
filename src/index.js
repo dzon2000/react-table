@@ -289,10 +289,12 @@ class Table extends React.Component {
       return (
         <div className="table-view">
           <input type="text" className="filter-field" onChange={this.handleChange}/>
+          <div className="table-content">
           <table>
             {this.createHeader()}
             {this.createTable()}
           </table>
+          </div>
           <table className="bottom">
             <tbody>
               <tr>
@@ -301,10 +303,9 @@ class Table extends React.Component {
               disabled={this.state.pageNum === 0}
               value={"<"}
               onClick={(i) => this.handleClick("prev")}
-            /></td><td>
-            <div>
+            /></td><td className="alignCenter">
               {this.state.pageNum + 1} / {this.state.totalPages}
-            </div></td><td>
+           </td><td className="alignRight">
             <Square 
               disabled={this.state.pageNum * this.state.perPage + this.state.perPage >= this.state.data.length}
               value={">"}
